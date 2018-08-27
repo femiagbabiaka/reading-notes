@@ -35,3 +35,13 @@
   * Connection-oriented networks were the most prevalent form of networking for many years. In the late 1960's, another option was developed known as the datagram.
     * A datagram is a special type of packet in which all of the identifying information of the source and final destination resides in the packet itself, instead of in those lookup tables stored in each switch.
   * Datagrams enabled what we call a `connectionless network`.
+
+### The End-To-End Argument and Fate Sharing
+* An important principle that influence the design of the TCP/IP suite is called the `end-to-end argument`.
+  * This priciple basically states that features needed by consumers of a protocol should be implemented by the consumers, and not by the protocol itself. 
+  * Efforts to correctly implement what the application is likely to need are doomed to incompleteness.
+  * In TCP's case, being designed with the end-to-end argument in mind means that it supports a design with a "dumb" network and "smart" systems connected to the network.
+* Another important principle is that of `fate sharing`.
+  * This basically means that all of the state necessary to maintain an active connection should live at the ends of that connection.
+  * Because of this, the only failure that could take down a connection is when one of the endpoints fail, in which case, the connection should die anyways.
+
